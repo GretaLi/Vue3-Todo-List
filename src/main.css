@@ -1,0 +1,262 @@
+:root {
+  --primary: #ca9f63;
+  --light: #eee;
+  --grey: #888;
+  --dark: #151511;
+  --white: #fff;
+
+  --width: 30rem;
+}
+@media (min-width: 992px) {
+  :root {
+    --width: 40rem;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "montserrat", sans-serif;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: initial;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+}
+
+header {
+  height: 15rem;
+  background-image: url(./images/bg-desktop.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  header {
+    height: 20rem;
+  }
+}
+
+section {
+  width: 100%;
+  max-width: var(--width);
+  margin: 0 auto;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  transition: 0.2s ease-in-out;
+}
+
+h1 {
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  letter-spacing: 4px;
+  text-align: right;
+}
+
+.greeting .title {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 992px) {
+  .greeting .title {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.greeting .title input {
+  margin-left: 0.5rem;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.greeting .title,
+.greeting .title input {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 0px 5px var(--grey);
+}
+
+.greeting .title input::placeholder {
+  color: var(--white);
+  opacity: 0.8;
+}
+
+.create-todo input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1.25rem 1.5rem;
+  color: var(--dark);
+  background-color: #fff;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.create-todo .options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.create-todo .options label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+}
+
+.bubble::after {
+  content: "";
+  display: block;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+}
+
+input:checked ~ .bubble::after {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
+.create-todo .options label div {
+  color: var(--dark);
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+.create-todo input[type="submit"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: #fff;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.create-todo input[type="submit"]:hover {
+  opacity: 0.75;
+}
+
+.todo-list .list {
+  margin: -2rem 0 1em;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.todo-list .todo-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-bottom: 1px solid var(--light);
+}
+
+.todo-list .todo-item:last-child {
+  border: 0;
+}
+
+.todo-list .todo-item:hover .delete {
+  opacity: 1;
+}
+
+.todo-item label {
+  display: block;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.todo-item .todo-content {
+  flex: 1 1 0%;
+}
+
+.todo-item .todo-content input {
+  color: var(--dark);
+  font-size: 1.125rem;
+}
+
+.todo-item .actions {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item .actions button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.todo-item .actions button:hover {
+  opacity: 0.75;
+}
+
+.todo-item .actions .delete {
+  color: var(--grey);
+  font-size: 1.25em;
+  line-height: 0;
+  opacity: 0;
+}
+
+.todo-item.done .todo-content input {
+  text-decoration: line-through;
+  color: var(--grey);
+}
+
+.empty {
+  margin-top: 4em;
+  color: var(--grey);
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.counter {
+  color: var(--grey);
+  text-align: right;
+}
