@@ -60,7 +60,7 @@ onMounted(() => {
           <input
             type="text"
             v-model="input_content"
-            placeholder="新增代辦事項"
+            placeholder="新增待辦事項"
           />
         </form>
       </section>
@@ -87,7 +87,7 @@ onMounted(() => {
             </button>
           </div>
         </div>
-        <div className="empty" v-if="todos.length === 0">尚無代辦事項</div>
+        <div className="empty" v-if="todos.length === 0">尚無待辦事項</div>
       </div>
       <div className="counter" v-if="todos.length">
         {{ todos.filter((t) => !t.done).length }} 件事項未完成
